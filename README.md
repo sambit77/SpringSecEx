@@ -1,5 +1,6 @@
 ### This application demonstrates spring security 
 
+#### Branch:- Default-Spring-Security
 1. Spring Security dependency by default gives login and logout template pages 
 2. It generates session id for each user
 3. Default username is user and password is auto generated on console.(For Dev only)
