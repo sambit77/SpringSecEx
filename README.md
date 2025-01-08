@@ -8,4 +8,7 @@
     spring.security.user.name=sambit
     spring.security.user.password=123456
    ```
-5.
+5. In case of POST, PUT, DELETE along with basic authentication parmas (username and password),
+   spring security expects a CSRF token (X-CSRF-TOKEN) in the request header else it will throw unauthorized error
+6. Use `localhost:8080/csrf-token` url to get the csrf token
+7. Refer to postman collection for all the endpoints.
