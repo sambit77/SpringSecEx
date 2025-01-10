@@ -1,5 +1,12 @@
 ### This application demonstrates spring security 
 
+#### Branches
+
+##### 1. Default-Spring-Security :- Intro to Spring Security (No Customizations)
+##### 2. Custom-Spring-Security :- Spring Security with Users stored in DB 
+##### 3. Jwt-Spring-Security :- Spring Security with JWT (Support for /login on top of #2)
+##### 4. OAuth-Spring-Security :- Spring Security with support for OAuth login (Google & Github)
+
 ### Steps to run this app :- 
 
 1. Clone this repo and switch to "Main" branch 
