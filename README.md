@@ -13,3 +13,9 @@
    spring security expects a CSRF token (X-CSRF-TOKEN) in the request header else it will throw unauthorized error
 6. Use `localhost:8080/csrf-token` url to get the csrf token
 7. Refer to postman collection for all the endpoints.
+
+#### Branch:- Custom-Spring-Security
+1. SecurityConfig class -> SecurityFilterChain bean is customized here
+2. UserDetailsService bean can be customized to use InMemory username and password pairs.
+3. AuthenticationProvider bean can be used to authenticate users form users database
+4. 
