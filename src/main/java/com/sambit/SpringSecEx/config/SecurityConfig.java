@@ -22,13 +22,11 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
 
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http.csrf(customizer -> customizer.disable()) //Disable CSRF token for post put delete requests
-//                .authorizeHttpRequests(request -> request.anyRequest().authenticated())
-//                .formLogin(Customizer.withDefaults()) //Enable login form
-//                .httpBasic(Customizer.withDefaults()); //Enable authentication in postman
-//                //.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-//        return  http.build();
-//    }
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests(request -> request.anyRequest().authenticated())
+                .oauth2Login(Customizer.withDefaults());
+        return  http.build();
+    }
 }

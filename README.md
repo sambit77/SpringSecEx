@@ -50,3 +50,19 @@
 7. If user is found return an object of UserPrincipal(Child class that implements UserDetails)
 8. UsersDataInitializer :- This class is used to create a default user in the database.
 9. BCryptEncoder :- Instead of storing password directly in database it can be encoded and accordingly step 5 need to be implemented. 
+
+#### Branch:- OAuth-Spring-Security
+1. SecurityConfig class -> SecurityFilterChain bean is customized here to use OAuth2
+2. Mention your OAuth servers (Google & Github) in application properties 
+   ```shell
+   spring.security.oauth2.client.registration.google.client-id=
+   spring.security.oauth2.client.registration.google.client-secret=
+   
+   spring.security.oauth2.client.registration.github.client-id=
+   spring.security.oauth2.client.registration.github.client-secret=
+   ``` 
+3. Client-Id and secrets can be generated using a developer account (Google and Github)
+   Google cloud console -> API & Services -> Credentials -> OAuth2 client 
+   Github -> Settings -> Developer Settings -> OAuth Apps
+   
+4. Hit `localhost:8080` to access the application with oauth2 login support
