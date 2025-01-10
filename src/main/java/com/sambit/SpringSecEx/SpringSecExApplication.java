@@ -1,8 +1,5 @@
 package com.sambit.SpringSecEx;
 
-import com.sambit.SpringSecEx.model.Users;
-import com.sambit.SpringSecEx.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

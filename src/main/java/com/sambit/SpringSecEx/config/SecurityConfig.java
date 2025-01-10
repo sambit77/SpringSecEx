@@ -21,43 +21,14 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Autowired
-    private UserDetailsService userDetailsService;
-
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(customizer -> customizer.disable()) //Disable CSRF token for post put delete requests
-                .authorizeHttpRequests(request -> request.anyRequest().authenticated())
-                .formLogin(Customizer.withDefaults()) //Enable login form
-                .httpBasic(Customizer.withDefaults()); //Enable authentication in postman
-                //.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-        return  http.build();
-    }
 
 //    @Bean
-//    public UserDetailsService userDetailsService()
-//    {
-//        UserDetails user1 = User.withDefaultPasswordEncoder()
-//                .username("Virat")
-//                .password("Kohli")
-//                .roles("USER")
-//                .build();
-//
-//        UserDetails user2 = User.withDefaultPasswordEncoder()
-//                .username("Rohit")
-//                .password("Sharma")
-//                .roles("USER")
-//                .build();
-//
-//        return new InMemoryUserDetailsManager(user1,user2);
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        http.csrf(customizer -> customizer.disable()) //Disable CSRF token for post put delete requests
+//                .authorizeHttpRequests(request -> request.anyRequest().authenticated())
+//                .formLogin(Customizer.withDefaults()) //Enable login form
+//                .httpBasic(Customizer.withDefaults()); //Enable authentication in postman
+//                //.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+//        return  http.build();
 //    }
-
-    @Bean
-    public AuthenticationProvider authenticationProvider()
-    {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setPasswordEncoder(new BCryptPasswordEncoder(12));
-        provider.setUserDetailsService(userDetailsService);
-        return  provider;
-    }
 }
