@@ -3,7 +3,7 @@
 #### Branches
 
 ##### 1. Default-Spring-Security :- Intro to Spring Security (No Customizations)
-##### 2. Custom-Spring-Security :- Spring Security with Users stored in DB 
+##### 2. Custom-Spring-Security / Main:- Spring Security with Users stored in DB 
 ##### 3. Jwt-Spring-Security :- Spring Security with JWT (Support for /login on top of #2)
 ##### 4. OAuth-Spring-Security :- Spring Security with support for OAuth login (Google & Github)
 
