@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "6e344d8e-5632-4219-8b1a-11f1f70cd420",
+		"name": "SpringSecExample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40608580"
+	},
+	"item": [
+		{
+			"name": "Basic",
+			"item": [
+				{
+					"name": "HelloWorld",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "123456",
+								"username": "sambit"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Get-Students",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "123456",
+								"username": "sambit"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/students"
+					},
+					"response": []
+				},
+				{
+					"name": "Get-CSRF-Token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "123456",
+								"username": "sambit"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/csrf-token"
+					},
+					"response": []
+				},
+				{
+					"name": "Create-Student",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "123456",
+								"username": "sambit"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-CSRF-TOKEN",
+								"value": "5nxFZeRfUrn8O1rTQQN40__QT4sZDI6sIh18gQ92sq7CNqnVhUpxV9xtMdjRAjy3eS5MtZy0YuoobriBRCRMszcXhsijDp_t",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 4,\n        \"name\": \"ramu\",\n        \"marks\": 60\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/students"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "InMemory-Users",
+			"item": [
+				{
+					"name": "HelloWorld Copy",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "Kohli",
+								"username": "Virat"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DB-Users",
+			"item": [
+				{
+					"name": "Default-Login",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080"
+					},
+					"response": []
+				},
+				{
+					"name": "Register-User",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 10,\n    \"password\": \"bitch\",\n    \"username\": \"sam\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/register"
+					},
+					"response": []
+				},
+				{
+					"name": "HelloWorld-BCrypt",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "bitch",
+								"username": "sam"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
