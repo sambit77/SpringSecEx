@@ -177,6 +177,72 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "JWT-Example",
+			"item": [
+				{
+					"name": "Register-User",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 10,\n    \"password\": \"bitch\",\n    \"username\": \"sam\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Login-User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"bitch\",\n    \"username\": \"sam\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/login-user"
+					},
+					"response": []
+				},
+				{
+					"name": "HelloWorld-with-JWT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYW0iLCJpYXQiOjE3MzY3NjU3MDIsImV4cCI6MTczNjc2Njc4Mn0.1YvjYbrGUOqE0GXH7l0ytqY1VWf5mm9vgRLOF9-2_qk"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080"
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
