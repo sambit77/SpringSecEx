@@ -51,6 +51,39 @@
 8. UsersDataInitializer :- This class is used to create a default user in the database.
 9. BCryptEncoder :- Instead of storing password directly in database it can be encoded and accordingly step 5 need to be implemented.
 
+#### Branch:- JWT-Spring-Security 
+
+There are 2 major steps involved in JWT (Json Web Token) based authentication
+1. Upon successful login (using username and password) issue a JWT to the user 
+2. On subsequent request to the server pass this JWT as bearer token in header which will be used in authenticating the request
+
+#### Steps to run 
+1. Run docker -> Spin up a postgres db in docker by running docker-compose.yml file -> Run the spring application
+2. Refer to "JWT-Example" postman collection
+3. `localhost:8080/register` :- Hit this url (no auth required) to register an user 
+4. `localhost:8080/login-user` :- Hit this url with the registered user in the body to get the JWT token
+5. `localhost:8080`:- The JWT token can be used to access other closed endpoints with Authtype = bearer token
+
+##### ControlFlow: Issue JWT token to valid users `localhost:8080/login-user`
+
+1. /register and /login-user endpoints are open url and no authentication is required to access (SecurityConfig.java line 37)
+2. create a /login-user postmapping to accept an username and password which will return JWT upon successful authentication
+3. Get hold of AuthenticationManager bean in SecurityConfig class and in USerService class use the authenticationManager object to verify the user
+4. If authentication is successful use JwtService class to generate a JWT token based on username
+5. JWT Token consists of subject which is username , issuedAt, expiryAt and it is signed with a key type HmacSHA256
+6. After building this JWTToken return it as a response 
+
+##### ControlFlow: Validate a JWT token for other endpoints `localhost:8080`
+
+1. Hit `localhost:8080` or any other closed endpoint with the issued JWT token
+2. In the request set Authorization type = Bearer token and value = issued JWTToken
+3. Before this request goes through USernamePasswordAuthentictaionFilter -> It should go through your own custom filter (JwtFilter) (SecurityConfig -> Line 42)
+4. Create a custom filter JwtFilter by extending to OncePerRequestFilter and implement the doFilterInternal method
+5. In doFilterInternal method , extract the authorization header -> bearer token and validate this token by extracting username , timestamp etc
+6. If validation is successful create an usernamepasswordauthenticationtoken and set it in security context
+7. Forward the request to other filters
+
+
 #### Branch:- OAuth-Spring-Security
 1. SecurityConfig class -> SecurityFilterChain bean is customized here to use OAuth2
 2. Mention your OAuth servers (Google & Github) in application properties
